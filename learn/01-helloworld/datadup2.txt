@@ -1,0 +1,4 @@
+mango is fruit
+banana
+apple
+mango is fruit
