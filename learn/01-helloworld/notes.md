@@ -43,3 +43,6 @@ strings in which text is generally UTF-8 encoded.
     - distributed applications
 
 - Go does not require semicolons at the end of the statements or declarations, except where two or more appear on the same line.
+
+Q. When to used short variable declaration and when to use explicit data-types?
+- short variable declaration, can only be used within function, not for package-level variables1

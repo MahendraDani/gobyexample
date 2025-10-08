@@ -35,6 +35,10 @@ func main(){
   - --i or ++i are also ILLEGAL.
   - paraentheses are not used in for loops
   */
+
+  /*
+  - the += operator creates a new string after concatenation, hence s will be remove via the garbage collector.
+  */
   for i:=1; i<len(os.Args); i++ {
     s += sep + os.Args[i] // string concatenation
     sep = " " 
@@ -62,6 +66,13 @@ func main(){
     for {
       // zero or more statements
     }
+
+  3. Type III - range based
+    for idx, elem = range data_structure {
+      // zero or more statements
+    }
+    - range based loops provides index and element value at that index.
+    - Go doesn't allow unused local variables, so use '_' for ignoring the index
   */
 
   fmt.Println(s)
