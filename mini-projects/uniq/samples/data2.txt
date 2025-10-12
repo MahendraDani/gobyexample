@@ -1,0 +1,8 @@
+info: server started
+info: server started
+warning: connection slow
+error: timeout
+error: timeout
+error: timeout
+success: reconnected
+

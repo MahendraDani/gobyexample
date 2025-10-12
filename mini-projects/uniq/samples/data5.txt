@@ -1,0 +1,8 @@
+[INFO] User login
+[INFO] User login
+[INFO] User logout
+[INFO] User login
+[ERROR] Invalid password
+[ERROR] Invalid password
+[INFO] User login
+
