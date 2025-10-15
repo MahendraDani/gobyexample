@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+  "io"
 )
 
 /*
@@ -23,9 +24,8 @@ func parseLines(line *string, prevLine *string) string {
 	return result
 }
 
-// Read from stdin, read lines case-sensitive, write a copy of adjacent duplicates to stdout
-func readAndParseLines() {
-	scanner := bufio.NewScanner(os.Stdin)
+func readAndParseLines(r io.Reader) {
+	scanner := bufio.NewScanner(r)
 
 	var prevLine string
 	for scanner.Scan() {
@@ -35,8 +35,26 @@ func readAndParseLines() {
 			fmt.Println(curr)
 		}
 	}
+  if err := scanner.Err(); err != nil {
+        fmt.Fprintln(os.Stderr, "Error reading:", err)
+        os.Exit(1)
+  }
 }
 
 func main() {
-	readAndParseLines()
+  if len(os.Args) > 1 {
+    if os.Args[1] == "-" {
+      readAndParseLines(os.Stdin)
+    } else {
+      file, err := os.Open(os.Args[1])
+      if err != nil {
+        fmt.Fprintln(os.Stderr, "Error opening file:", err)
+        os.Exit(1)
+      }
+      readAndParseLines(file)
+      defer file.Close()
+    }
+  }else{
+    readAndParseLines(os.Stdin)
+  }
 }
